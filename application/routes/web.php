@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('botman', 'BotmanController@index');
-
-Route::post('botman', 'BotmanController@post');
-
-Route::get('{path}', function () {
+Route::get('/', function () {
     return view('welcome');
-})->where( 'path', '([A-z\d-\/_.]+)?' );
+});
 
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::get('/botman/tinker', 'BotManController@tinker');

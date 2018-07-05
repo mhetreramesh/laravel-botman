@@ -1,53 +1,22 @@
-import Vue from 'vue';
 
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
 
-import VueAxios from 'vue-axios';
-import axios from 'axios';
-Vue.use(VueAxios, axios);
+require('./bootstrap');
 
-import App from './App.vue';
-import CreateItem from './components/CreateItem.vue';
-import DisplayItem from './components/DisplayItem.vue';
-import EditItem from './components/EditItem.vue';
-import DisplayCategory from './components/DisplayCategory.vue';
-import CreateCategory from './components/CreateCategory.vue';
-import EditCategory from './components/EditCategory.vue';
+window.Vue = require('vue');
 
-const routes = [
-  {
-      name: 'DisplayItem',
-      path: '/',
-      component: DisplayItem
-  },
-  {
-      name: 'CreateItem',
-      path: '/items/create',
-      component: CreateItem
-  },
-  {
-      name: 'EditItem',
-      path: '/edit/:id',
-      component: EditItem
-  },
-  {
-      name: 'DisplayCategory',
-      path: '/categories',
-      component: DisplayCategory
-  },
-  {
-      name: 'CreateCategory',
-      path: '/categories/create',
-      component: CreateCategory
-  },
-  {
-      name: 'EditCategory',
-      path: '/categories/edit/:id',
-      component: EditCategory
-  }
-];
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-var router = new VueRouter({ mode: 'history', routes: routes});
+Vue.component('botman-tinker', require('./components/BotManTinker.vue'));
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const app = new Vue({
+    el: '#app'
+});

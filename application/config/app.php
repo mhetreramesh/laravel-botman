@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://pim.tradebyte.lcl'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +169,14 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
+         * BotMan Service Providers...
+         */
+        BotMan\Tinker\TinkerServiceProvider::class,
+        App\Providers\BotMan\DriverServiceProvider::class,
+        BotMan\BotMan\BotManServiceProvider::class,
+        BotMan\Studio\Providers\StudioServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -176,9 +184,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        \BotMan\BotMan\BotManServiceProvider::class,
-        \BotMan\Tinker\TinkerServiceProvider::class,
 
     ],
 
@@ -229,7 +234,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Botman' => \BotMan\BotMan\Facades\BotMan::class
     ],
 
 ];

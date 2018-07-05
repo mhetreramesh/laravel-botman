@@ -1,23 +1,33 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "botman/studio",
+    "description": "BotMan Chatbot framework.",
+    "keywords": [
+        "botman",
+        "chatbot",
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "botman/botman": "*",
-        "botman/driver-slack": "^2.1",
-        "botman/tinker": "^1.0",
-        "laravel/framework": "5.4.*",
+        "php": ">=7.0",
+        "botman/botman": "~2.0",
+        "botman/driver-slack": "^1.0",
+        "botman/driver-telegram": "^1.0",
+        "botman/driver-web": "~1.0",
+        "botman/studio-addons": "~1.0",
+        "botman/tinker": "~1.0",
+        "clue/stdio-react": "^1.0",
+        "fideloper/proxy": "~3.3",
+        "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "mpociot/slack-client": "^1.1"
+        "mpociot/slack-client": "^0.3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "laravel/dusk": "^1.0",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "~6.0",
+        "filp/whoops": "~2.0"
     },
     "autoload": {
         "classmap": [
@@ -41,17 +51,27 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "BotMan\\Studio\\Providers\\DriverServiceProvider::publishDriverConfigurations",
             "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "BotMan\\Studio\\Providers\\DriverServiceProvider::publishDriverConfigurations",
             "php artisan optimize"
         ],
-        "test": "phpunit"
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
     },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
     }
 }

@@ -1,7 +1,12 @@
 /node_modules
+/public/hot
 /public/storage
+/storage/*.key
 /vendor
 /.idea
-.env
-/public/mix-manifest.json
+/.vagrant
+/.discovery
+Homestead.json
+Homestead.yaml
 npm-debug.log
+.env
