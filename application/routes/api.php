@@ -21,3 +21,7 @@ Route::get('items/all', 'ItemController@getAll');
 Route::get('categories/all', 'CategoriesController@getAll');
 Route::resource('items', 'ItemController');
 Route::resource('categories', 'CategoriesController');
+
+Route::post('botman/challenge', function (Request $request) {
+    return $request->get('challenge');
+});

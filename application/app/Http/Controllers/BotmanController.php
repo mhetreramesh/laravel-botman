@@ -34,6 +34,6 @@ class BotmanController extends Controller
     {
         $all = $request->all();
 
-        echo isset($all['challenge'])?$all['challenge']:'';
+        echo isset($all['challenge']) ? $all['challenge'] : '';
     }
 }
