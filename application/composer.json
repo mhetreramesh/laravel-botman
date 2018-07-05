@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "botman/botman": "*",
         "botman/driver-slack": "^2.1",
+        "botman/tinker": "^1.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "mpociot/slack-client": "^1.1"

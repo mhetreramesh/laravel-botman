@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         \BotMan\BotMan\BotManServiceProvider::class,
+        \BotMan\Tinker\TinkerServiceProvider::class,
 
     ],
 
