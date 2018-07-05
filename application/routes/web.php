@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('botman', 'BotmanController@index');
+
+Route::post('botman', 'BotmanController@post');
+
 Route::get('{path}', function () {
     return view('welcome');
 })->where( 'path', '([A-z\d-\/_.]+)?' );
