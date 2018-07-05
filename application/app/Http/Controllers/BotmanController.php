@@ -32,6 +32,8 @@ class BotmanController extends Controller
 
     public function post(Request $request)
     {
-        echo 'challenge';
+        $all = $request->all();
+
+        echo isset($all['challenge'])?$all['challenge']:'';
     }
 }
