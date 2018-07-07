@@ -1,57 +1,25 @@
-# cryptobot
+<p align="center"><img height="188" width="198" src="https://botman.io/img/botman.png"></p>
+<h1 align="center">BotMan Studio</h1>
 
-A bot to compare cryptocurrencies
+## About BotMan Studio
 
-## Getting Started
+While BotMan itself is framework agnostic, BotMan is also available as a bundle with the great [Laravel](https://laravel.com) PHP framework. This bundled version is called BotMan Studio and makes your chatbot development experience even better. By providing testing tools, an out of the box web driver implementation and additional tools like an enhanced CLI with driver installation, class generation and configuration support, it speeds up the development significantly.
 
-Clone the project repository by running the command below if you use SSH
+## Documentation
 
-```bash
-git clone git@github.com:ammezie/cryptobot.git
-```
+You can find the BotMan and BotMan Studio documentation at [http://botman.io](http://botman.io).
 
-If you use https, use this instead
+## Support the development
+**Do you like this project? Support it by donating**
 
-```bash
-git clone https://github.com/ammezie/cryptobot.git
-```
+- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=m%2epociot%40googlemail%2ecom&lc=CY&item_name=BotMan&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest)
+- Patreon: [Donate](https://www.patreon.com/botman)
 
-## Install Dependencies
+## Security Vulnerabilities
 
-`cd` into the project directory and run:
+If you discover a security vulnerability within BotMan or BotMan Studio, please send an e-mail to Marcel Pociot at m.pociot@gmail.com. All security vulnerabilities will be promptly addressed.
 
-```bash
-composer install
-```
+## License
 
-Duplicate `.env.example` and rename it `.env`
+BotMan is free software distributed under the terms of the MIT license.
 
-Run:
-
-```bash
-php artisan key:generate
-```
-
-## Create a Slack app
-
-Visit the [Slack API](https://api.slack.com/apps?new_app=1) website in order to create a new Slack app. Then visit [https://botman.io/2.0/driver-slack](https://botman.io/2.0/driver-slack) to see how to configure your app. Once you've installed your app, paste the `Bot User OAuth Access Token` in `.env`:
-
-```txt
-SLACK_TOKEN=YOUR_SLACK_BOT_USER_TOKEN
-```
-
-## Create a Telegram bot
-
-Visit [https://core.telegram.org/bots](https://core.telegram.org/bots) to create a Telegram bot. Then visit [https://botman.io/2.0/driver-telegram](https://botman.io/2.0/driver-telegram) to see how to configure your bot. Then paste your `API Token` in `.env`:
-
-```txt
-TELEGRAM_TOKEN=YOUR-TELEGRAM-TOKEN
-```
-
-Finally, run:
-
-```bash
-php artisan serve
-```
-
-and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.

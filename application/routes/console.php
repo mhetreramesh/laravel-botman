@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 
+$botman = resolve('botman');
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -16,3 +18,9 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+
+Artisan::command('send', function () use($botman) {
+    $message = BotMan\BotMan\Messages\Outgoing\OutgoingMessage::create('Just for Fun');
+    $botman->say($message, 'U5201HPF1', \BotMan\Drivers\Slack\SlackDriver::class);
+})->describe('Send test message');
