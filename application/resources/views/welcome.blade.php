@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BotMan Studio</title>
+    <title>TB.Botman</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="content">
-            <h1 style="color:#FFFFFF">TB.Admin | Botman</h1>
+            <h1 style="color:#FFFFFF">TB.Botman</h1>
         </div>
         <br><br>
         <div class="links">
