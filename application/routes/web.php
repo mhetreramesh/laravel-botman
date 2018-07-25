@@ -11,18 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
-Route::get('/botman/tinker', 'BotManController@tinker');
 
 Route::match(['get', 'post'], '/thc/send-my-question', 'THCController@sendMyQuestion');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::match(['get', 'post'], '/callback', 'Auth\LoginController@handleProviderCallback');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{path}', function () {
+    return view('welcome');
+})->where( 'path', '([A-z\d-\/_.]+)?' );

@@ -3,24 +3,29 @@
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "devDependencies": {
-    "axios": "^0.18",
-    "bootstrap": "^3.3.7",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "bootstrap-sass": "^3.3.7",
+    "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue-axios": "^2.0.2",
+    "vue-loader": "^13.0.2",
+    "vue-template-compiler": "^2.4.2",
+    "bootstrap": "^3.3.7",
     "chartist": "^0.10.1",
     "v-click-outside": "0.0.8",
     "vue": "^2.3.0",
-    "vue-router": "^2.2.0",
-    "laravel-mix": "^1.0",
-    "cross-env": "^5.0.1"
+    "vue-router": "^2.2.0"
   },
-  "dependencies": {
-    "botman-tinker": "^0.0.1"
-  }
+  "devDependencies": {}
 }
