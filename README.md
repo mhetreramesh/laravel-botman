@@ -1,4 +1,4 @@
-# Tradebyte Senior PHP Developer Test - PIM System
+# Botman implementation with laravel
 
 ### Tools, Technologies & Frameworks used used
 1. `docker` for environment management
@@ -28,4 +28,4 @@
 1. `npm run watch`
 2. To run unit tests `composer test`
 3. Browser test `php artisan dusk`
-4. API doc available at `http://localhost:8091/doc/index.html`
+4. API doc available at `http://localhost:8095/doc/index.html`

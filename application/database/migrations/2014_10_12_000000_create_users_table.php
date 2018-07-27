@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('slack_user')->default(null)->nullable(true);
             $table->string('slack_id')->default(null)->nullable(true);
             $table->string('password')->default(null)->nullable(true);
+            $table->string('api_token', 60)->unique()->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });

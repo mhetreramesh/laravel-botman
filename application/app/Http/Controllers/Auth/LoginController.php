@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/#/admin';
 
     /**
      * Create a new controller instance.
@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except(['logout', 'handleProviderCallback']);
+        $this->middleware('guest')->except(['redirectToProvider', 'handleProviderCallback']);
     }
 
     /**
@@ -61,16 +61,22 @@ class LoginController extends Controller
         if (explode("@", $user->email)[1] !== 'tradebyte.com') {
             return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
         }
-        $existingUser = User::where('email', $user->email)->first();
-        if($existingUser){
-            auth()->login($existingUser, true);
+        $user = User::where('email', $user->email)->first();
+        $auth = false;
+        if ($user) {
+            $auth = auth()->login($user, true);
         } else {
-            $newUser                  = new User;
-            $newUser->name            = $user->name;
-            $newUser->email           = $user->email;
-            $newUser->save();
-            auth()->login($newUser, true);
+            $user = new User;
+            $user->name            = $user->name;
+            $user->email           = $user->email;
+            $user->save();
+            $auth = auth()->login($user, true);
         }
-        return redirect()->to('/#/admin');
+        if ($user && $auth) {
+            $user->rollApiKey();
+            Cookie::queue('auth_token', '', $minutes);
+            return view('welcome', ['user' => '']);
+        }
+        return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
     }
 }

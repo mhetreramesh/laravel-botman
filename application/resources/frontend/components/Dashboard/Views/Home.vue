@@ -1,9 +1,9 @@
 <template>
 <div>
     <div style="float:right; padding:20px">
-        <div class="g-signin-button">
+        <a class="g-signin-button" href="/redirect">
             Sign in with Google
-        </div>
+        </a>
     </div>
     <div style="clear:both;"></div>
 <div class="container">

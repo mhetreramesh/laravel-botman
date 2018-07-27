@@ -16404,8 +16404,15 @@ var routes = [{
   path: '/',
   component: __WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue___default.a
 }, {
+  path: '/logout',
+  beforeEnter: function beforeEnter(to, from, next) {
+    auth.logout();
+    next('/');
+  }
+}, {
   path: '/admin',
   component: __WEBPACK_IMPORTED_MODULE_0__components_Dashboard_Layout_DashboardLayout_vue___default.a,
+  beforeEnter: requireAuth,
   redirect: '/admin/thc',
   children: [{
     path: 'overview',
@@ -16467,6 +16474,17 @@ function view(name) {
    var res= require('../components/Dashboard/Views/' + name + '.vue');
    return res;
 };**/
+
+function requireAuth(to, from, next) {
+  if (!auth.loggedIn()) {
+    next({
+      path: '/',
+      query: { redirect: to.fullPath }
+    });
+  } else {
+    next();
+  }
+}
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
 
@@ -28198,9 +28216,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticStyle: { float: "right", padding: "20px" } }, [
-      _c("div", { staticClass: "g-signin-button" }, [
-        _vm._v("\n            Sign in with Google\n        ")
-      ])
+      _c(
+        "a",
+        { staticClass: "g-signin-button", attrs: { href: "/redirect" } },
+        [_vm._v("\n            Sign in with Google\n        ")]
+      )
     ])
   },
   function() {
