@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -56,26 +57,24 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
-        // only allow people with @company.com to login
-        if (explode("@", $user->email)[1] !== 'tradebyte.com') {
+        $googleUser = Socialite::driver('google')->user();
+        if (explode("@", $googleUser->email)[1] !== 'tradebyte.com') {
             return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
         }
-        $user = User::where('email', $user->email)->first();
-        $auth = false;
+        $user = User::where('email', $googleUser->email)->first();
         if ($user) {
-            $auth = auth()->login($user, true);
+            auth()->login($user, true);
         } else {
             $user = new User;
-            $user->name            = $user->name;
-            $user->email           = $user->email;
+            $user->name            = $googleUser->name;
+            $user->email           = $googleUser->email;
             $user->save();
-            $auth = auth()->login($user, true);
+            auth()->login($user, true);
         }
-        if ($user && $auth) {
+        if ($user && Auth::user()) {
             $user->rollApiKey();
-            Cookie::queue('auth_token', '', $minutes);
-            return view('welcome', ['user' => '']);
+            \Illuminate\Support\Facades\Cookie::queue('auth_token', $user->api_token, 100);
+            return view('welcome', ['user' => $user]);
         }
         return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
     }
