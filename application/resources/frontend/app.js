@@ -15,9 +15,12 @@ import routes from './routes/routes'
 import Chartist from 'chartist'
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/sass/app.scss'
+import VueCookie from 'vue-cookie'
 // import 'es6-promise/auto'
 
 // plugin setup
+Vue.use(VueCookie)
+
 Vue.use(VueRouter)
 Vue.use(GlobalComponents)
 Vue.use(vClickOutside)

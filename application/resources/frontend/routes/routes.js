@@ -17,6 +17,8 @@ import CreateTHC from '../components/Dashboard/Views/THC/CreateTHC.vue'
 import ViewTHCDetails from '../components/Dashboard/Views/THC/ViewTHCDetails.vue'
 import Home from '../components/Dashboard/Views/Home.vue'
 
+import auth from '../components/auth'
+
 const routes = [
   {
     path: '/',

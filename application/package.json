@@ -13,19 +13,20 @@
     "axios": "^0.16.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
+    "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
+    "chartist": "^0.10.1",
     "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
-    "vue-axios": "^2.0.2",
-    "vue-loader": "^13.0.2",
-    "vue-template-compiler": "^2.4.2",
-    "bootstrap": "^3.3.7",
-    "chartist": "^0.10.1",
     "v-click-outside": "0.0.8",
     "vue": "^2.3.0",
-    "vue-router": "^2.2.0"
+    "vue-axios": "^2.0.2",
+    "vue-cookie": "^1.1.4",
+    "vue-loader": "^13.0.2",
+    "vue-router": "^2.2.0",
+    "vue-template-compiler": "^2.4.2"
   },
   "devDependencies": {}
 }
