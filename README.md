@@ -22,7 +22,7 @@
 4. Run this command: `php artisan migrate` inside docker php container. (`You can ssh to container using bash application/ssh_docker.sh php command`)
 5. Then run this command: npm run dev
 6. Next type this command: `docker-compose up -d` to start required docker environment
-7. It will start the server at this URL http://localhost:8091
+7. It will start the server at this URL http://localhost:8085
 
 ### For Developers:
 1. `npm run watch`
