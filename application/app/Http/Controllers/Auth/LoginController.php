@@ -76,6 +76,6 @@ class LoginController extends Controller
             \Illuminate\Support\Facades\Cookie::queue('auth_token', $user->api_token, 100);
             return view('welcome', ['user' => $user]);
         }
-        return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
+        return view('welcome', ['error' => 'Your login attempt not completed!']);
     }
 }

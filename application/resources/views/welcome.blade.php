@@ -21,7 +21,13 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
             'baseUrl' => url('/')
-        ]); ?>
+        ]);
+
+        if (isset($user)) {
+            echo "localStorage.setItem('api_token', '".$user->api_token."')";
+        }
+
+        ?>
     </script>
     <script src="{{asset('js/app.js')}}"></script>
 </body>
