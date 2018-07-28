@@ -30,12 +30,18 @@
 </template>
 
 <script>
+import auth from '../../auth'
 
 export default {
   data () {
     return {
     }
-  }
+  },
+    created: function () {
+        if (auth.login) {
+            this.$router.push({name: 'overview'})
+        }
+    }
 }
 </script>
 

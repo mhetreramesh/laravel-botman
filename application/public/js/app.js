@@ -27784,6 +27784,7 @@ exports.push([module.i, "\n.g-signin-button {\n  /* This is where you control ho
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth__ = __webpack_require__(195);
 //
 //
 //
@@ -27815,12 +27816,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {};
-  }
+    data: function data() {
+        return {};
+    },
+
+    created: function created() {
+        if (__WEBPACK_IMPORTED_MODULE_0__auth__["a" /* default */].login) {
+            this.$router.push({ name: 'overview' });
+        }
+    }
 });
 
 /***/ }),
