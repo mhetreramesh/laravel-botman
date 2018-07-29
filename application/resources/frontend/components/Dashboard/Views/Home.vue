@@ -37,11 +37,11 @@ export default {
     return {
     }
   },
-    created: function () {
-        if (auth.login) {
-            this.$router.push({name: 'overview'})
-        }
+  created: function () {
+    if (auth.login) {
+        this.$router.push({name: 'overview'})
     }
+  }
 }
 </script>
 
