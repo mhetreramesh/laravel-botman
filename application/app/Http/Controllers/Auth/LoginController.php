@@ -62,7 +62,7 @@ class LoginController extends Controller
             return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
         }
         $user = User::where('email', $googleUser->email)->first();
-        
+
         if ($user) {
             auth()->login($user, true);
         } else {
