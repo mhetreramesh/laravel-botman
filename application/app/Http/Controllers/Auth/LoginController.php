@@ -62,6 +62,7 @@ class LoginController extends Controller
             return view('welcome', ['error' => 'Only tradebyte.com domain emails allowed to login']);
         }
         $user = User::where('email', $googleUser->email)->first();
+        
         if ($user) {
             auth()->login($user, true);
         } else {
@@ -71,11 +72,13 @@ class LoginController extends Controller
             $user->save();
             auth()->login($user, true);
         }
+
         if ($user && Auth::user()) {
             $user->rollApiKey();
             \Illuminate\Support\Facades\Cookie::queue('api_token', $user->api_token, 100);
             return redirect('/#/admin/overview');
         }
+
         return view('welcome', ['error' => 'Your login attempt not completed!']);
     }
 }
