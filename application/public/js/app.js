@@ -726,7 +726,7 @@ module.exports = Component.exports
         delete localStorage.token;
     },
     loggedIn: function loggedIn() {
-        return this.$cookie.get('test');
+        return document.cookie.indexOf('api_token=');
     }
 });
 

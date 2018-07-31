@@ -6,6 +6,6 @@ export default {
         delete localStorage.token
     },
     loggedIn () {
-        return this.$cookie.get('test');
+        return document.cookie.indexOf('api_token=');
     }
 }
