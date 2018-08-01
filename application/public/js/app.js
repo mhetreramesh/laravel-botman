@@ -718,15 +718,19 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_cookie__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_cookie__);
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
     getToken: function getToken() {
-        return localStorage.token;
+        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.get('api_token');
     },
     logout: function logout() {
-        delete localStorage.token;
+        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.delete('api_token');
     },
     loggedIn: function loggedIn() {
-        return document.cookie.indexOf('api_token=');
+        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.get('api_token');
     }
 });
 
@@ -16410,11 +16414,15 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_auth__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_cookie__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_vue_cookie__);
 
 // GeneralViews
 
 
 // Admin pages
+
+
 
 
 
@@ -16507,7 +16515,7 @@ function view(name) {
 };**/
 
 function requireAuth(to, from, next) {
-  if (!__WEBPACK_IMPORTED_MODULE_15__components_auth__["a" /* default */].loggedIn()) {
+  if (null === __WEBPACK_IMPORTED_MODULE_16_vue_cookie___default.a.get('api_token')) {
     next({
       path: '/',
       query: { redirect: to.fullPath }
@@ -16749,7 +16757,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -16760,6 +16768,14 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16874,11 +16890,19 @@ var staticRenderFns = [
             "a",
             { staticClass: "btn-rotate", attrs: { href: "/#/admin/user" } },
             [
-              _c("i", { staticClass: "ti-user" }),
+              _c("i", { staticClass: "fa fa-user" }),
               _vm._v(" "),
               _c("p", [_vm._v("\n              Profile\n            ")])
             ]
           )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { staticClass: "btn-rotate", attrs: { href: "/#/logout" } }, [
+            _c("i", { staticClass: "fa fa-sign-out" }),
+            _vm._v(" "),
+            _c("p", [_vm._v("\n              Logout\n            ")])
+          ])
         ])
       ])
     ])
@@ -27802,6 +27826,8 @@ exports.push([module.i, "\n.g-signin-button {\n  /* This is where you control ho
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_cookie__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_cookie__);
 //
 //
 //
@@ -27833,6 +27859,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -27842,7 +27869,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   created: function created() {
-    if (__WEBPACK_IMPORTED_MODULE_0__auth__["a" /* default */].login) {
+    alert(__WEBPACK_IMPORTED_MODULE_1_vue_cookie___default.a.get('api_token'));
+    if (__WEBPACK_IMPORTED_MODULE_1_vue_cookie___default.a.get('api_token')) {
       this.$router.push({ name: 'overview' });
     }
   }

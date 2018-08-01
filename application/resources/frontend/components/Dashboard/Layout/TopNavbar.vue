@@ -14,9 +14,17 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <a href="/#/admin/user" class="btn-rotate">
-              <i class="ti-user"></i>
+              <i class="fa fa-user"></i>
               <p>
                 Profile
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="/#/logout" class="btn-rotate">
+              <i class="fa fa-sign-out"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>

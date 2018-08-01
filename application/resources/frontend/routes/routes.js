@@ -19,6 +19,8 @@ import Home from '../components/Dashboard/Views/Home.vue'
 
 import auth from '../components/auth'
 
+import cookie from 'vue-cookie'
+
 const routes = [
   {
     path: '/',
@@ -113,7 +115,7 @@ function view(name) {
 };**/
 
 function requireAuth (to, from, next) {
-    if (!auth.loggedIn()) {
+    if (null === cookie.get('api_token')) {
         next({
             path: '/',
             query: { redirect: to.fullPath }
