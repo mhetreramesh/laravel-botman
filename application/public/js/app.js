@@ -718,19 +718,15 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_cookie__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_cookie__);
-
-
 /* harmony default export */ __webpack_exports__["a"] = ({
     getToken: function getToken() {
-        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.get('api_token');
+        return localStorage.getItem('testObject');
     },
     logout: function logout() {
-        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.delete('api_token');
+        localStorage.clear();
     },
     loggedIn: function loggedIn() {
-        return __WEBPACK_IMPORTED_MODULE_0_vue_cookie___default.a.get('api_token');
+        return localStorage.getItem('api_token');
     }
 });
 
@@ -16414,15 +16410,11 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_Dashboard_Views_Home_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_auth__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_cookie__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_vue_cookie__);
 
 // GeneralViews
 
 
 // Admin pages
-
-
 
 
 
@@ -16515,7 +16507,7 @@ function view(name) {
 };**/
 
 function requireAuth(to, from, next) {
-  if (null === __WEBPACK_IMPORTED_MODULE_16_vue_cookie___default.a.get('api_token')) {
+  if (!__WEBPACK_IMPORTED_MODULE_15__components_auth__["a" /* default */].loggedIn()) {
     next({
       path: '/',
       query: { redirect: to.fullPath }
@@ -27826,8 +27818,6 @@ exports.push([module.i, "\n.g-signin-button {\n  /* This is where you control ho
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_cookie__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_cookie__);
 //
 //
 //
@@ -27859,7 +27849,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 
 
@@ -27869,9 +27858,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   created: function created() {
-    alert(__WEBPACK_IMPORTED_MODULE_1_vue_cookie___default.a.get('api_token'));
-    if (__WEBPACK_IMPORTED_MODULE_1_vue_cookie___default.a.get('api_token')) {
-      this.$router.push({ name: 'overview' });
+    if (__WEBPACK_IMPORTED_MODULE_0__auth__["a" /* default */].loggedIn()) {
+      window.location.href = '/#/admin/overview';
     }
   }
 });

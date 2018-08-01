@@ -1,13 +1,11 @@
-import cookie from 'vue-cookie'
-
 export default {
     getToken () {
-        return cookie.get('api_token')
+        return localStorage.getItem('testObject')
     },
     logout () {
-        return cookie.delete('api_token')
+        localStorage.clear();
     },
     loggedIn () {
-        return cookie.get('api_token')
+        return localStorage.getItem('api_token')
     }
 }

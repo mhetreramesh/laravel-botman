@@ -31,7 +31,6 @@
 
 <script>
 import auth from '../../auth'
-import cookie from 'vue-cookie'
 
 export default {
   data () {
@@ -39,9 +38,8 @@ export default {
     }
   },
   created: function () {
-      alert(cookie.get('api_token'))
-      if (cookie.get('api_token')) {
-        this.$router.push({name: 'overview'})
+    if (auth.loggedIn()) {
+        window.location.href = '/#/admin/overview';
     }
   }
 }

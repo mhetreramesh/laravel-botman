@@ -75,8 +75,7 @@ class LoginController extends Controller
 
         if ($user && Auth::user()) {
             $user->rollApiKey();
-            \Illuminate\Support\Facades\Cookie::queue('api_token', $user->api_token, 100);
-            return redirect('/#/admin/overview');
+            return view('welcome', ['user' => $user]);
         }
 
         return view('welcome', ['error' => 'Your login attempt not completed!']);
