@@ -15659,23 +15659,23 @@ var SidebarStore = {
   showSidebar: false,
   sidebarLinks: [{
     name: 'Dashboard',
-    icon: 'ti-home',
+    icon: 'fa fa-home',
     path: '/admin/overview'
   }, {
     name: 'THC',
-    icon: 'ti-pulse',
+    icon: 'fa fa-universal-access',
     path: '/admin/thc'
   }, {
     name: 'THC Templates',
-    icon: 'ti-panel',
+    icon: 'fa fa-braille',
     path: '/admin/table-list'
   }, {
     name: 'Users',
-    icon: 'ti-user',
+    icon: 'fa fa-user',
     path: '/admin/users'
   }, {
     name: 'Teams',
-    icon: 'ti-flag-alt',
+    icon: 'fa fa-group',
     path: '/admin/teams'
   }],
   displaySidebar: function displaySidebar(value) {
