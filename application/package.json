@@ -17,6 +17,7 @@
     "bootstrap-sass": "^3.3.7",
     "chartist": "^0.10.1",
     "cross-env": "^5.0.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
@@ -26,8 +27,7 @@
     "vue-cookie": "^1.1.4",
     "vue-loader": "^13.0.2",
     "vue-router": "^2.2.0",
-    "vue-template-compiler": "^2.4.2",
-    "font-awesome": "*"
+    "vue-template-compiler": "^2.4.2"
   },
   "devDependencies": {}
 }
