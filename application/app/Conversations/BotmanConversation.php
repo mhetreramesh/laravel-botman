@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
@@ -29,7 +30,8 @@ class BotmanConversation extends Conversation
             if ($answer->isInteractiveMessageReply()) {
                 if ($answer->getValue() === 'account') {
                     $this->ask('Account number please?', function (Answer $response) {
-                        $this->say('Cool - you said ' . $response->getText());
+                        $message = OutgoingMessage::create(':heavy_check_mark: *bold* `code` _italic_ ~strike~ '.$response->getText());
+                        $this->say($message);
                     });
                 } else if($answer->getValue() === 'channel') {
                     $this->say(Inspiring::quote());
