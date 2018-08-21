@@ -3,6 +3,7 @@ use App\Http\Controllers\BotManController;
 
 $botman = resolve('botman');
 
+/*
 $botman->hears('Hi', function ($bot) {
     $user = $bot->getUser();
     $bot->reply('Hello '.$user->getFirstName().' '.$user->getLastName());
@@ -10,7 +11,7 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply('Your username is: '.$user->getUsername());
     $bot->reply('Your ID is: '.$user->getId());
 });
-
+*/
 
 use BotMan\BotMan\Middleware\ApiAi;
 
@@ -31,10 +32,9 @@ $botman->hears('try', function (\BotMan\BotMan\BotMan $bot) {
     $bot->reply("Testing");
 })->middleware($dialogflow);
 
-$botman->hears('Start conversation', BotManController::class.'@startConversation');
+$botman->hears('Hi', BotManController::class.'@startConversation');
 
 $botman->hears('start-health-check', \App\Http\Controllers\THCController::class.'@nextQuestion');
-
 
 $botman->fallback(function($bot) {
     $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
