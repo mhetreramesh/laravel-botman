@@ -36,6 +36,8 @@ $botman->hears('Hi', BotManController::class.'@startConversation');
 
 $botman->hears('start-health-check', \App\Http\Controllers\THCController::class.'@nextQuestion');
 
+$botman->hears('account-details', \App\Http\Controllers\ClientController::class.'@accountDetails');
+
 $botman->fallback(function($bot) {
     $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
 });

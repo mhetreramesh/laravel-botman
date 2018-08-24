@@ -2,6 +2,8 @@
 
 namespace App\Conversations;
 
+use BotMan\BotMan\Messages\Attachments\Image;
+use BotMan\BotMan\Messages\Attachments\Video;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
@@ -37,7 +39,13 @@ class BotmanConversation extends Conversation
                     $this->say(Inspiring::quote());
                 } else if($answer->getValue() === 'joke') {
                     $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
-                    $this->say($joke->value->joke);
+                    //$attachment = new Image('http://thecatapi.com/api/images/get?format=src&type=gif&timestamp='.time());
+                    $attachment = new Image('http://thecatapi.com/api/images/get?format=src&type=gif', [
+                        'custom_payload' => true,
+                        ]
+                    );
+                    $message = OutgoingMessage::create('_`'.$joke->value->joke.'`_', $attachment)->withAttachment($attachment);
+                    $this->say($message);
                 } else {
                     $this->say(Inspiring::quote());
                 }

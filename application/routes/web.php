@@ -15,6 +15,8 @@ Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
 Route::match(['get', 'post'], '/thc/send-my-question', 'THCController@sendMyQuestion');
 
+Route::match(['get', 'post'], '/account-details', 'ClientController@accountDetails');
+
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 Route::match(['get', 'post'], '/callback', 'Auth\LoginController@handleProviderCallback');
 
