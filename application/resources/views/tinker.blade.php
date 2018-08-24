@@ -27,7 +27,7 @@
         }
 
         .content {
-            text-align: center;
+            text-align: left;
         }
     </style>
 </head>
